@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screener - TradeX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  background:#0b0f1a;
+  color:white;
+  font-family:sans-serif;
+}
+
+.sidebar {
+  width:220px;
+  height:100vh;
+  position:fixed;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+}
+
+.main {
+  margin-left:240px;
+  padding:20px;
+}
+
+.card {
+  padding:20px;
+  margin:10px;
+  display:inline-block;
+  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 10px 30px rgba(0,255,150,0.3);
+}
+
+table {
+  width:100%;
+  margin-top:20px;
+  border-collapse:collapse;
+}
+
+td, th {
+  padding:10px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>TradeX</h2>
+<div onclick="goHome()">Dashboard</div>
+<div>Screener</div>
+</div>
+
+<div class="main">
+
+<h1>Intraday Screener 🔥</h1>
+
+<div>
+  <div class="card" onclick="run('ORB Breakout')">ORB Breakout</div>
+  <div class="card" onclick="run('VWAP Failure')">VWAP + 9 EMA</div>
+  <div class="card" onclick="run('Demand Zone')">Demand Zone</div>
+</div>
+
+<table id="result" style="display:none;">
+<tr><th>Stock</th><th>Strategy</th><th>Signal</th></tr>
+<tr><td>RELIANCE</td><td id="strategy"></td><td>BUY</td></tr>
+<tr><td>TCS</td><td id="strategy2"></td><td>BUY</td></tr>
+</table>
+
+</div>
+
+<script>
+function run(name){
+  document.getElementById("result").style.display = "table";
+  document.getElementById("strategy").innerText = name;
+  document.getElementById("strategy2").innerText = name;
+}
+
+function goHome(){
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
